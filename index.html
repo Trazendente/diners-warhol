@@ -1,0 +1,149 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./mindar-image-three.prod.js"></script>
+    <script src="./main.js" type="module"></script>
+    <style>
+            html,
+            body {
+              position: relative;
+              margin: 0;
+              width: 100%;
+              height: 100%;
+              overflow: hidden;
+            }
+
+             body {
+              font-family: 'Segoe', sans-serif;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+               /* IMAGEN BLUR DEL FONDO */
+               background: url('https://cdn.glitch.global/8045e1db-f664-44a0-84e2-4c60083a24d0/portada2_apuntarV4.jpg?v=1706546433203') center/cover no-repeat; /
+
+            }
+
+            #scanning {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              position: absolute;
+              left: 0;
+              right: 0;
+              top: 0;
+              bottom: 0;
+              background: transparent;
+              z-index: 2;
+            }
+            @media (min-aspect-ratio: 1/1) {
+              #scanning .inner {
+                width: 50vh;
+                height: 50vh;
+              }
+            }
+            @media (max-aspect-ratio: 1/1) {
+              #scanning .inner {
+                width: 80vw;
+                height: 80vw;
+              }
+            }
+
+            #scanning .inner {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              position: relative;
+              background: linear-gradient(to right, white 10px, transparent 10px) 0 0,
+                linear-gradient(to right, white 10px, transparent 10px) 0 100%,
+                linear-gradient(to left, white 10px, transparent 10px) 100% 0,
+                linear-gradient(to left, white 10px, transparent 10px) 100% 100%,
+                linear-gradient(to bottom, white 10px, transparent 10px) 0 0,
+                linear-gradient(to bottom, white 10px, transparent 10px) 100% 0,
+                linear-gradient(to top, white 10px, transparent 10px) 0 100%,
+                linear-gradient(to top, white 10px, transparent 10px) 100% 100%;
+              background-repeat: no-repeat;
+              background-size: 40px 40px;
+            }
+
+            #scanning.hidden {
+              display: none;
+            }
+
+            #scanning img {
+              opacity: 0.6;
+              width: 90%;
+              align-self: center;
+            }
+
+            #scanning .inner .scanline {
+              position: absolute;
+              width: 100%;
+              height: 10px;
+              background: white;
+              animation: move 2s linear infinite;
+            }
+
+            @keyframes move {
+              0%,
+              100% {
+                top: 0%;
+              }
+              50% {
+                top: calc(100% - 10px);
+              }
+            }
+      #startButton {
+          background-color: #000000;
+          color: #FFFFFF;
+          border: none;
+          padding: 3% 5%; /* Utiliza porcentajes para hacerlo más adaptable */
+          max-width: 392px; /* Establece un ancho máximo para evitar que se extienda demasiado en pantallas grandes */
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 20px;
+          border-radius: 0px; /* Esquinas redondeadas */
+          cursor: pointer;
+          box-sizing: border-box; /* Mantiene el ancho total incluyendo el padding y el borde */
+
+          /* Ajustes para mover hacia abajo */
+          margin-top: 150%; /* Utiliza porcentajes para hacerlo más adaptable */
+          margin-left: auto;
+          margin-right: auto;
+      }
+
+      /* Media query para realizar ajustes específicos en pantallas más pequeñas */
+      @media screen and (max-width: 600px) {
+          #startButton {
+              width: 100%; /* Ocupa todo el ancho en pantallas más pequeñas */
+              max-width: none; /* Elimina el ancho máximo en pantallas más pequeñas */
+          }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="scanning" class="hidden">
+      <div class="inner">
+        <img /* LA IMAGEN QUE APARECE JUNTO AL ESCANER */
+        src="https://cdn.glitch.global/8045e1db-f664-44a0-84e2-4c60083a24d0/portada_warhol1.jpg?v=1706541053473"
+        alt="Image Alt Text" />
+        <div class="scanline"></div>
+      </div>
+    </div>
+
+    <div id="container"></div>
+  </body>
+  <style>
+    @font-face {
+      font-family: "Segoe";
+      /* LA FUENTE ELEGIDA */
+      src: url("https://cdn.glitch.global/8045e1db-f664-44a0-84e2-4c60083a24d0/Coolvetica.ttf?v=1706544409415")
+        format("truetype");
+    }
+
+    body {
+      font-family: "Segoe", sans-serif;
+    }
+  </style>
+</html>
