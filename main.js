@@ -1,3 +1,6 @@
+import { loadVideo } from "./loader.js";
+import { loadAudio } from "./loader.js";
+
 const THREE = window.MINDAR.IMAGE.THREE;
 
 document.addEventListener("DOMContentLoaded", () => {
